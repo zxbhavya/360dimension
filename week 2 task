@@ -1,0 +1,13 @@
+int addDigits(int num) {
+    // Repeat the digit sum until only one digit is left
+    while (num >= 10) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        num = sum;
+    }
+    // Return the single-digit result
+    return num;
+}
