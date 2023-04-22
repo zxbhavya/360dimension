@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class RichestCustomerWealth {
+public:
+    int maximumWealth(vector<vector<int>>& accounts) {
+        int maxWealth = 0;
+        for (vector<int>& customer : accounts) {
+            int wealth = 0;
+            for (int amount : customer) {
+                wealth += amount;
+            }
+            maxWealth = max(maxWealth, wealth);
+        }
+        return maxWealth;
+    }
+};
+
+int main() {
+    RichestCustomerWealth rcw;
+    vector<vector<int>> accounts = {{1, 2, 3}, {3, 2, 1}};
+    int result = rcw.maximumWealth(accounts);
+    cout << result << endl; // prints 6 (customer 1 has wealth 1+2+3=6)
+    return 0;
+}
